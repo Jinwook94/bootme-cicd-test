@@ -53,33 +53,33 @@ ext {
     snippetsDir = file('build/generated-snippets')
 }
 
-test {
+//test {
 //    outputs.dir snippetsDir
 //    useJUnitPlatform()
-}
-
-asciidoctor.doFirst {
-    delete file('src/main/resources/static/docs')
-}
-
-asciidoctor {
-    dependsOn test
-    inputs.dir snippetsDir
-    configurations 'asciidoctorExt'
-    baseDirFollowsSourceFile()
-}
-
-task copyDocument(type: Copy) {
-    dependsOn asciidoctor
-    from file("build/docs/asciidoc")
-    into file("src/main/resources/static/docs")
-}
-
-task buildDocument(type: Copy) {
-    dependsOn copyDocument
-    from file("src/main/resources/static/docs")
-    into file("build/resources/main/static/docs")
-}
+//}
+//
+//asciidoctor.doFirst {
+//    delete file('src/main/resources/static/docs')
+//}
+//
+//asciidoctor {
+//    dependsOn test
+//    inputs.dir snippetsDir
+//    configurations 'asciidoctorExt'
+//    baseDirFollowsSourceFile()
+//}
+//
+//task copyDocument(type: Copy) {
+//    dependsOn asciidoctor
+//    from file("build/docs/asciidoc")
+//    into file("src/main/resources/static/docs")
+//}
+//
+//task buildDocument(type: Copy) {
+//    dependsOn copyDocument
+//    from file("src/main/resources/static/docs")
+//    into file("build/resources/main/static/docs")
+//}
 
 bootJar {
     // 스프링 프로필이 'prod' 아니면 빌드되지 않도록 설정
@@ -96,7 +96,7 @@ bootJar {
         throw new StopExecutionException("스프링 프로필이 'prod'로 설정되어 있지 않아 빌드를 취소했습니다. (현재 프로필: $activeProfile) \n" +
                 'application.yml 파일의 "spring.profiles.active" 값을 확인하세요.')
     }
-    dependsOn buildDocument
+//    dependsOn buildDocument
     enabled = true
 
     doFirst {

@@ -71,14 +71,14 @@ asciidoctor {
 
 task copyDocument(type: Copy) {
     dependsOn asciidoctor
-//    from file("build/docs/asciidoc")
-//    into file("src/main/resources/static/docs")
+    from file("build/docs/asciidoc")
+    into file("src/main/resources/static/docs")
 }
 
 task buildDocument(type: Copy) {
     dependsOn copyDocument
-//    from file("src/main/resources/static/docs")
-//    into file("build/resources/main/static/docs")
+    from file("src/main/resources/static/docs")
+    into file("build/resources/main/static/docs")
 }
 
 bootJar {

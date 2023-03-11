@@ -43,7 +43,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          sed -i "s/\${JASYPT_PASSWORD}/${{ secrets.JASYPT_PASSWORD }}/g" src/main/resources/application.yml
+          sed -i "s/\encryptKey/${{ secrets.JASYPT_PASSWORD }}/g" src/main/resources/application.yml
           ./gradlew bootJar
 
       - name: Make Zip File

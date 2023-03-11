@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class BootmeApplication {
-    // Test ha ga ㅇ
+    // Test ha ga
     public static void main(String[] args) {
         SpringApplication.run(BootmeApplication.class, args);
     }

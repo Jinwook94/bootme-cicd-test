@@ -37,8 +37,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Replace JASYPT_PASSWORD in application.yml
-        run: sed -i "s/\encryptKey/${{ secrets.JASYPT_PASSWORD }}/g" ./src/main/resources/application.yml
+      - name: Replace Jasypt Password
+        run: sed -i "s/encryptKey/${{ secrets.JASYPT_PASSWORD }}/g" ./src/main/resources/application.yml
 
       - name: Build with Gradle
         run: ./gradlew bootJar

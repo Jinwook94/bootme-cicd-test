@@ -54,8 +54,8 @@ ext {
 }
 
 test {
-    outputs.dir snippetsDir
-    useJUnitPlatform()
+//    outputs.dir snippetsDir
+//    useJUnitPlatform()
 }
 
 asciidoctor.doFirst {
@@ -71,14 +71,14 @@ asciidoctor {
 
 task copyDocument(type: Copy) {
     dependsOn asciidoctor
-    from file("build/docs/asciidoc")
-    into file("src/main/resources/static/docs")
+//    from file("build/docs/asciidoc")
+//    into file("src/main/resources/static/docs")
 }
 
 task buildDocument(type: Copy) {
     dependsOn copyDocument
-    from file("src/main/resources/static/docs")
-    into file("build/resources/main/static/docs")
+//    from file("src/main/resources/static/docs")
+//    into file("build/resources/main/static/docs")
 }
 
 bootJar {
@@ -98,4 +98,12 @@ bootJar {
     }
     dependsOn buildDocument
     enabled = true
+
+    doFirst {
+        Properties properties2 = new Properties()
+        InputStream inputStream2 = new FileInputStream(project.rootProject.file('src/main/resources/application.yml'))
+        properties.load(inputStream)
+        def password = properties.getProperty("password")
+        println "jasypt.encryptor.password: " + password
+    }
 }

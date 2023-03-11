@@ -37,14 +37,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Set environment variables
-        run: |
-          echo "JASYPT_PASSWORD=${{ secrets.JASYPT_PASSWORD }}" >> $GITHUB_ENV
+      - name: Replace JASYPT_PASSWORD in application.yml
+        run: sed -i "s/\encryptKey/${{ secrets.JASYPT_PASSWORD }}/g" ./src/main/resources/application.yml
 
       - name: Build with Gradle
-        run: |
-          sed -i "s/\encryptKey/${{ secrets.JASYPT_PASSWORD }}/g" src/main/resources/application.yml
-          ./gradlew bootJar
+        run: ./gradlew bootJar
 
       - name: Make Zip File
         run: zip -qq -r ./$GITHUB_SHA.zip .

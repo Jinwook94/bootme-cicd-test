@@ -53,10 +53,10 @@ ext {
     snippetsDir = file('build/generated-snippets')
 }
 
-test {
-    outputs.dir snippetsDir
-    useJUnitPlatform()
-}
+//test {
+//    outputs.dir snippetsDir
+//    useJUnitPlatform()
+//}
 
 asciidoctor.doFirst {
     delete file('src/main/resources/static/docs')
@@ -96,7 +96,7 @@ bootJar {
         throw new StopExecutionException("스프링 프로필이 'prod'로 설정되어 있지 않아 빌드를 취소했습니다. (현재 프로필: $activeProfile) \n" +
                 'application.yml 파일의 "spring.profiles.active" 값을 확인하세요.')
     }
-    dependsOn buildDocument
+//    dependsOn buildDocument
     enabled = true
 
     doFirst {

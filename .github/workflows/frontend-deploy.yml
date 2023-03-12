@@ -38,8 +38,19 @@ jobs:
 
       - name: Serve built files
         run: |
-          serve -s dist
-          echo "Serving finished with code $?"
+          serve -s dist &
+          serve_pid=$!
+          echo "Serve process ID: $serve_pid"
+          sleep 10
+          serve_error=$(tail -n 1000 logs/serve.log | grep -i 'error\|warn')
+          if [ -n "$serve_error" ]; then
+            echo "Serve error: $serve_error"
+            kill -9 $serve_pid
+            exit 1
+          else
+            echo "Serve completed successfully."
+            kill $serve_pid
+          fi
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1

@@ -2,13 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const webpack = require("webpack");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 
-if (process.env.NODE_ENV === 'production') {
-  dotenv.config({ path: '.env.production' });
-} else {
-  dotenv.config({ path: '.env' });
-}
+// if (process.env.NODE_ENV === 'production') {
+//   dotenv.config({ path: '.env.production' });
+// } else {
+//   dotenv.config({ path: '.env' });
+// }
 
 module.exports = {
   entry: {

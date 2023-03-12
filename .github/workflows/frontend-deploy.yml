@@ -47,7 +47,7 @@ jobs:
 
       - name: Create new folder in S3 and Upload build files to the folder
         run: |
-          folder_name=${GITHUB_SHA}_$(date +"%Y%m%d_%H%M%S")
+          folder_name=${GITHUB_SHA}_$(TZ=Asia/Seoul date +"%Y%m%d_%H%M%S")
           aws s3api put-object --bucket ${S3_BUCKET_NAME} --key ${folder_name}/
           aws s3 cp dist/ s3://${S3_BUCKET_NAME}/${folder_name}/ --recursive
 

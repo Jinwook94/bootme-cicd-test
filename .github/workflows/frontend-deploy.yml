@@ -41,9 +41,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
-      #      - name: Delete files from S3 root
-      #        run: |
-      #          aws s3 rm s3://${S3_BUCKET_NAME}/ --exclude="naver_logo.svg" --recursive --exclude="*/"
+      - name: Delete files from S3 root
+        run: |
+          aws s3 rm s3://${S3_BUCKET_NAME}/ --exclude="naver_logo.svg" --recursive --exclude="*/"
 
       - name: Create new folder with Commit SHA hash and timestamp
         run: |
@@ -57,9 +57,9 @@ jobs:
         run: |
           aws s3 cp dist/ s3://${S3_BUCKET_NAME}/ --recursive
           sleep 10
-#
-#      - name: Invalidate CloudFront cache
-#        uses: aws-actions/amazon-cloudfront-invalidate-action@master
-#        with:
-#          distribution-id: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-#          paths: '/*'
+
+      - name: Invalidate CloudFront cache
+        uses: aws-actions/amazon-cloudfront-invalidate-action@master
+        with:
+          distribution-id: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          paths: '/*'

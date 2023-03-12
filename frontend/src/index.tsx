@@ -14,13 +14,14 @@ import { SecretProvider } from './hooks/useSecret';
 
 const rootElement = document.getElementById('root') as Element;
 const queryClient = new QueryClient();
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
 
 ReactDOM.createRoot(rootElement).render(
   <BrowserRouter>
     <SecretProvider>
       <NotificationProvider>
         <LoginProvider>
-          <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID!}>
+          <GoogleOAuthProvider clientId={googleClientId}>
             <BookmarkProvider>
               <FilterProvider>
                 <QueryClientProvider client={queryClient}>

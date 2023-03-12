@@ -33,6 +33,14 @@ jobs:
           npm install
           npm run build
 
+      - name: Install serve
+        run: npm install -g serve
+
+      - name: Serve built files
+        run: |
+          serve -s dist
+          echo "Serving finished with code $?"
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

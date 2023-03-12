@@ -20,7 +20,7 @@ ReactDOM.createRoot(rootElement).render(
     <SecretProvider>
       <NotificationProvider>
         <LoginProvider>
-          <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID as string}>
+          <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID!}>
             <BookmarkProvider>
               <FilterProvider>
                 <QueryClientProvider client={queryClient}>

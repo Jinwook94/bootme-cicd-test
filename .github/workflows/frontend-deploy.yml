@@ -1,0 +1,64 @@
+name: frontend deployment
+
+on:
+  push:
+    branches: [main]
+    paths: ["frontend/**"]
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+defaults:
+  run:
+    working-directory: frontend
+
+env:
+  S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_FRONTEND }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Replace secrets
+        run: |
+          sed -i "s/AWS_SDK_CREDENTIAL_ACCESS_KEY/${{ secrets.AWS_SDK_CREDENTIAL_ACCESS_KEY }}/g" ./src/pages/Test/index.tsx
+          sed -i "s/AWS_SDK_CREDENTIAL_SECRET_KEY/${{ secrets.AWS_SDK_CREDENTIAL_SECRET_KEY }}/g" ./src/pages/Test/index.tsx
+
+      - name: Install dependencies and Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+#      - name: Delete files from S3 root
+#        run: |
+#          aws s3 rm s3://${S3_BUCKET_NAME}/ --exclude="naver_logo.svg" --recursive --exclude="*/"
+#
+#      - name: Create new folder with Commit SHA hash and timestamp
+#        run: |
+#          folder_name=${GITHUB_SHA}_$(date +"%Y%m%d_%H%M%S")
+#          aws s3api put-object --bucket ${S3_BUCKET_NAME} --key ${folder_name}/
+#
+#      - name: Upload new build files to the newly created folder in S3 bucket
+#        run: aws s3 cp dist/ s3://${S3_BUCKET_NAME}/${folder_name}/ --recursive
+#
+#      - name: Upload new build files to S3 bucket root
+#        run: |
+#          aws s3 cp dist/ s3://${S3_BUCKET_NAME}/ --recursive
+#          sleep 10
+#
+#      - name: Invalidate CloudFront cache
+#        uses: aws-actions/amazon-cloudfront-invalidate-action@master
+#        with:
+#          distribution-id: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+#          paths: '/*'

@@ -26,7 +26,8 @@ const Test = () => {
         })
       );
       console.log(response);
-      console.log(response.SecretString);
+      const secrets = JSON.parse(response.SecretString as string);
+      console.log(secrets['api-url']);
     } catch (error) {
       console.log(error);
       // For a list of exceptions thrown, see

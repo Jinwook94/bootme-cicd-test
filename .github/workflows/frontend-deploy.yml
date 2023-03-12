@@ -25,33 +25,14 @@ jobs:
 
       - name: Replace secrets
         run: |
-          sed -i "s/AWS_SDK_CREDENTIAL_ACCESS_KEY/${{ secrets.AWS_SDK_CREDENTIAL_ACCESS_KEY }}/g" ./src/pages/Test/index.tsx
-          sed -i "s/AWS_SDK_CREDENTIAL_SECRET_KEY/${{ secrets.AWS_SDK_CREDENTIAL_SECRET_KEY }}/g" ./src/pages/Test/index.tsx
+          sed -i "s/GOOGLE_CLIENT_ID/${{ secrets.GOOGLE_CLIENT_ID }}/g" ./src/index.tsx
+          sed -i "s/AWS_SDK_CREDENTIAL_ACCESS_KEY/${{ secrets.AWS_SDK_CREDENTIAL_ACCESS_KEY }}/g" ./src/hooks/useSecret.tsx
+          sed -i "s/AWS_SDK_CREDENTIAL_SECRET_KEY/${{ secrets.AWS_SDK_CREDENTIAL_SECRET_KEY }}/g" ./src/hooks/useSecret.tsx
 
       - name: Install dependencies and Build
         run: |
           npm install
           npm run build
-
-      - name: Install serve
-        run: npm install -g serve
-
-      - name: Serve built files
-        run: |
-          mkdir -p logs
-          serve -s dist > logs/serve.log 2>&1 &
-          serve_pid=$!
-          echo "Serve process ID: $serve_pid"
-          sleep 10
-          serve_error=$(tail -n 1000 logs/serve.log | grep -i 'error\|warn')
-          if [ -n "$serve_error" ]; then
-          echo "Serve error: $serve_error"
-          kill -9 $serve_pid
-          exit 1
-          else
-          echo "Serve completed successfully."
-          kill $serve_pid
-          fi
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -60,22 +41,22 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
-#      - name: Delete files from S3 root
-#        run: |
-#          aws s3 rm s3://${S3_BUCKET_NAME}/ --exclude="naver_logo.svg" --recursive --exclude="*/"
-#
+      #      - name: Delete files from S3 root
+      #        run: |
+      #          aws s3 rm s3://${S3_BUCKET_NAME}/ --exclude="naver_logo.svg" --recursive --exclude="*/"
+
       - name: Create new folder with Commit SHA hash and timestamp
         run: |
           folder_name=${GITHUB_SHA}_$(date +"%Y%m%d_%H%M%S")
           aws s3api put-object --bucket ${S3_BUCKET_NAME} --key ${folder_name}/
 
       - name: Upload new build files to the newly created folder in S3 bucket
-        run: aws s3 cp dist/ s3://${S3_BUCKET_NAME}/${folder_name}/dist --recursive
-#
-#      - name: Upload new build files to S3 bucket root
-#        run: |
-#          aws s3 cp dist/ s3://${S3_BUCKET_NAME}/ --recursive
-#          sleep 10
+        run: aws s3 cp dist/ s3://${S3_BUCKET_NAME}/${folder_name}/ --recursive
+
+      - name: Upload new build files to S3 bucket root
+        run: |
+          aws s3 cp dist/ s3://${S3_BUCKET_NAME}/ --recursive
+          sleep 10
 #
 #      - name: Invalidate CloudFront cache
 #        uses: aws-actions/amazon-cloudfront-invalidate-action@master

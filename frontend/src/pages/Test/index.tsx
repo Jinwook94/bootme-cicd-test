@@ -1,7 +1,7 @@
 import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
 import React from 'react';
 
-// 테스트
+// 테스트고우
 
 const access_key: string = process.env.AWS_SDK_CREDENTIAL_ACCESS_KEY!;
 const secret_key: string = process.env.AWS_SDK_CREDENTIAL_SECRET_KEY!;

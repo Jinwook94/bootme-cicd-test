@@ -4,11 +4,17 @@ import * as jose from 'jose';
 import { useLogin } from '../../../hooks/useLogin';
 
 const { naver } = window;
-const CLIENT_ID = process.env.REACT_APP_NAVER_CLIENT_ID;
-const SIGNING_KEY = process.env.REACT_APP_NAVER_SIGNING_KEY;
-const CALLBACK_URL = process.env.REACT_APP_NAVER_REDIRECT_URI;
-const ISSUER = process.env.REACT_APP_NAVER_ISSUER ?? '';
-const AUDIENCE = process.env.REACT_APP_NAVER_AUDIENCE ?? '';
+// const CLIENT_ID = process.env.REACT_APP_NAVER_CLIENT_ID;
+// const SIGNING_KEY = process.env.REACT_APP_NAVER_SIGNING_KEY;
+// const CALLBACK_URL = process.env.REACT_APP_NAVER_REDIRECT_URI;
+// const ISSUER = process.env.REACT_APP_NAVER_ISSUER ?? '';
+// const AUDIENCE = process.env.REACT_APP_NAVER_AUDIENCE ?? '';
+
+const CLIENT_ID = '';
+const SIGNING_KEY = '';
+const CALLBACK_URL = '';
+const ISSUER = '';
+const AUDIENCE = '';
 
 const naverLogin = new naver.LoginWithNaverId({
   clientId: CLIENT_ID,

@@ -4,12 +4,12 @@ import LoginButton from '../LoginButton';
 import { useLogin } from '../../../hooks/useLogin';
 import { noCredentialsFetcher } from '../../../api/fetcher';
 
-const REST_API_KEY = process.env.REACT_APP_KAKAO_API_KEY;
-const REDIRECT_URI = process.env.REACT_APP_KAKAO_REDIRECT_URI;
-const STATE = process.env.REACT_KAKAO_STATE;
+const REST_API_KEY = 'process.env.REACT_APP_KAKAO_API_KEY';
+const REDIRECT_URI = 'process.env.REACT_APP_KAKAO_REDIRECT_URI';
+const STATE = 'process.env.REACT_KAKAO_STATE';
 const KAKAO_OAUTH_ACCESS_TOKEN_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code&state=${STATE}`;
 const KAKAO_OAUTH_ID_TOKEN_URL = 'https://kauth.kakao.com/oauth/token';
-const CLIENT_SECRET = process.env.REACT_APP_KAKAO_CLIENT_SECRET;
+const CLIENT_SECRET = 'process.env.REACT_APP_KAKAO_CLIENT_SECRET';
 
 export const KakaoLoginButton = () => {
   return (

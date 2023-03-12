@@ -2,9 +2,9 @@ import { fetcher } from '../api/fetcher';
 import * as jose from 'jose';
 import { COURSE_BOOKMARKED, COURSE_CLICKED, COURSE_ID } from '../constants/webhook';
 
-const ISSUER = process.env.REACT_APP_WEBHOOK_ISSUER ?? '';
-const AUDIENCE = process.env.REACT_APP_WEBHOOK_AUDIENCE ?? '';
-const SIGNING_KEY = process.env.REACT_APP_WEBHOOK_SIGNING_KEY;
+const ISSUER = 'process.env.REACT_APP_WEBHOOK_ISSUER' ?? '';
+const AUDIENCE = 'process.env.REACT_APP_WEBHOOK_AUDIENCE' ?? '';
+const SIGNING_KEY = 'process.env.REACT_APP_WEBHOOK_SIGNING_KEY';
 
 const useWebhook = (): useWebhookProps => {
   /**

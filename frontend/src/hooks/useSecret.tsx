@@ -8,8 +8,8 @@ const SecretContext = createContext<SecretContextProps>({
 export const SecretProvider = ({ children }: SecretProviderProps) => {
   const [secrets, setSecrets] = useState<{ [key: string]: string }>({});
   const [secretName] = useState<string>('prod/React');
-  const [accessKey] = useState<string>(process.env.AWS_SDK_CREDENTIAL_ACCESS_KEY);
-  const [secretKey] = useState<string>(process.env.AWS_SDK_CREDENTIAL_SECRET_KEY);
+  const [accessKey] = useState<string>('AWS_SDK_CREDENTIAL_ACCESS_KEY');
+  const [secretKey] = useState<string>('AWS_SDK_CREDENTIAL_SECRET_KEY');
 
   const client = new SecretsManagerClient({
     region: 'ap-northeast-2',

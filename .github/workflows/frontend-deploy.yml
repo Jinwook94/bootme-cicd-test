@@ -43,7 +43,7 @@ jobs:
 
       - name: Delete files from S3 root
         run: |
-          aws s3 rm s3://${S3_BUCKET_NAME}/ --exclude="naver_logo.svg" --exclude="favicon.ico" --recursive --exclude="*/"
+          aws s3 rm s3://${S3_BUCKET_NAME}/ --recursive --exclude="naver_logo.svg" --exclude="favicon.ico" --exclude="build/*"
 
       - name: Create new folder in S3 and Upload build files to the folder
         run: |

@@ -46,11 +46,11 @@ jobs:
         if: always()
         with:
           files: '**/build/test-results/test/TEST-*.xml'
-          github_token: ${{ secrets.BACKEND_TEST_PR }}
+          github_token: ${{ github.token }}
           
       - name: Post Check Comment on Failed Test Lines
         uses: mikepenz/action-junit-report@v3
         if: always()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
-          token: ${{ secrets.BACKEND_TEST_PR }}
+          token: ${{ github.token }}

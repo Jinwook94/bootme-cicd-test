@@ -46,7 +46,7 @@ jobs:
         if: always()
         with:
           files: '**/build/test-results/test/TEST-*.xml'
-          github_token: ${{ secrets.BACKEND_TEST_PR }}
+          github_token: ${{ secrets.APP_PRIVATE_KEY }}
           
       - name: Post Check Comment on Failed Test Lines
         uses: mikepenz/action-junit-report@v3

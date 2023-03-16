@@ -46,7 +46,7 @@ jobs:
         if: always()
         with:
           files: '**/build/test-results/test/TEST-*.xml'
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Post Check Comment on Failed Test Lines
         uses: mikepenz/action-junit-report@v3

@@ -1,13 +1,13 @@
-# name: backend deployment
+name: backend deployment
 
-# on:
-#   push:
-#     branches: [main]
-#     paths: ["backend/**"]
+on:
+  push:
+    branches: [main]
+    paths: ["backend/**"]
 
-# defaults:
-#   run:
-#     working-directory: backend
+defaults:
+  run:
+    working-directory: backend
 
 # env:
 #   S3_BUCKET_NAME: bootme-cicd-springboot

@@ -7,13 +7,16 @@
 <br>
 
 ## 결과물 URL
-- [프로젝트 소개 문서](https://github.com/Jinwook94/bootme/files/13223261/bootme.pdf)
-- <a href="https://samata94.notion.site/a26611d37ab2404d92366e4c5677efff?v" target="_blank">개발 문서</a>
-- 서비스: <a href="https://bootme.co.kr/" target="_blank">운영</a> / <a href="https://staging.bootme.co.kr/" target="_blank">스테이징</a>
-- API 문서: <a href="https://api.bootme.co.kr/docs/swagger/index.html" target="_blank">Swagger</a> / <a href="https://api.bootme.co.kr/docs/rest/index.html" target="_blank">Spring REST Docs</a>
-- <a href="https://dbdiagram.io/d/BootMe_ALL-64788f24722eb77494373f88" target="_blank">ERD</a>
-- <a href="https://www.figma.com/file/aTIdPnGfBe2ValxUY7zbFD/BootMe-Figma?node-id=360-2" target="_blank">디자인</a>
-
+| 결과물                | URL                                                                                             |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| 프로젝트 소개 문서         | [bootme.pdf](https://github.com/Jinwook94/bootme/files/13223261/bootme.pdf)                     |
+| 개발 문서              | [samata94.notion.site/a26611d37ab2404d92366e4c5677efff?v](https://samata94.notion.site/a26611d37ab2404d92366e4c5677efff?v) |
+| 서비스 (운영)           | https://bootme.co.kr                                                                            |
+| 서비스 (스테이징)         | https://staging.bootme.co.kr                                                                    |
+| API 문서 (Swagger)   | https://api.bootme.co.kr/docs/swagger/index.html                                                |
+| API 문서 (Rest Docs) | https://api.bootme.co.kr/docs/rest/index.html                                                   |
+| ERD                | [dbdiagram.io/d/BootMe_ALL-64788f24722eb77494373f88](https://dbdiagram.io/d/BootMe_ALL-64788f24722eb77494373f88)              |
+| 디자인                | [figma.com/file/aTIdPnGfBe2ValxUY7zbFD/BootMe-Figma?node-id=360-2](https://www.figma.com/file/aTIdPnGfBe2ValxUY7zbFD/BootMe-Figma?node-id=360-2)                |
 
 <br>
 

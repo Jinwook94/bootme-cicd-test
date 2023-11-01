@@ -6,9 +6,24 @@
 
 <br>
 
-## 주요 기능
-<img src="https://github.com/Jinwook94/bootme/assets/44575214/a7c8fad7-2db3-44fa-8f08-cf8c28b4bc80">
-<img src="https://github.com/Jinwook94/bootme/assets/44575214/b4f85fed-a6f9-4ae2-9c9f-60486b8f4820">
+## 결과물 URL
+| 결과물                | URL                                                                          |
+|--------------------|------------------------------------------------------------------------------|
+| GitHub             | https://github.com/Jinwook94/bootme                                          |
+| 서비스 (운영)           | https://bootme.co.kr/                                                        |
+| 서비스 (스테이징)         | https://staging.bootme.co.kr/                                                |
+| 개발 문서              | https://samata94.notion.site/a26611d37ab2404d92366e4c5677efff?v              |
+| API 문서 (Swagger)   | https://api.bootme.co.kr/docs/swagger/index.html                             |
+| API 문서 (Rest Docs) | https://api.bootme.co.kr/docs/rest/index.html                                |
+| ERD                | https://dbdiagram.io/d/BootMe_ALL-64788f24722eb77494373f88                   |
+| 디자인                | https://www.figma.com/file/aTIdPnGfBe2ValxUY7zbFD/BootMe-Figma?node-id=360-2 |
+
+<br>
+
+## API 문서
+
+- https://api.bootme.co.kr/docs/swagger/index.html
+- https://api.bootme.co.kr/docs/rest/index.html
 
 <br>
 
@@ -19,77 +34,57 @@
 
 <br>
 
-## 인프라
+## 환경 구성
 
 <details>
-  <summary>운영환경 아키텍처</summary>
+  <summary>운영 환경</summary>
 
   <img src="https://github.com/Jinwook94/bootme/assets/44575214/3bade8d0-6b3c-430e-8a53-f31485c2f6a4">
 </details>
 
 <details>
-  <summary>스테이징 환경 아키텍처</summary>
+  <summary>스테이징 환경</summary>
 
   <img src="https://github.com/Jinwook94/bootme/assets/44575214/16178a70-34e0-4647-976e-ffbeba3da62f">
 </details>
 
 <details>
-  <summary>로컬 개발 환경 아키텍처</summary>
+  <summary>로컬 개발 환경</summary>
 
   <img src="https://github.com/Jinwook94/bootme/assets/44575214/f0c16ceb-450a-46aa-845a-765e119c595c">
 </details>
 
+<br>
+
+## 배포 자동화
 <details>
-  <summary>프론트엔드 CI/CD</summary>
+  <summary>프론트엔드</summary>
 
   <img src="https://github.com/Jinwook94/bootme/assets/44575214/61817685-222f-4bf8-a10d-9cffaf13d994">
 </details>
 
 <details>
-  <summary>백엔드 CI/CD</summary>
+  <summary>백엔드</summary>
 
   <img src="https://github.com/Jinwook94/bootme/assets/44575214/2569b04f-74e8-457a-815e-5d641afce6c1">
 </details>
 
+<br>
 
-### CloudWatch 모니터링
-
-```mermaid
-flowchart LR
-
-subgraph EC2
-    subgraph Springboot
-        1[Tomcat]
-				2[ApplicationLogic]
-    end
-		subgraph Logs
-			3
-			4
-			5
-			6
-		end
-end
-
-1 --logback--> 3[accessLog-text.log]
-1 --logback--> 4[accessLog-json.log]
-2 --logback--> 5[generalLog-text.log]
-2 --logback--> 6[generalLog-json.log]
-
-subgraph CloudWatch
-	7[ Log Groups<br>ㅡㅡㅡㅡㅡㅡㅡㅡㅡ<br> springboot/access/text <br> springboot/access/json <br> springboot/general/text <br> springboot/general/json <br>]
-end
-
-Logs --CloudWatch Agent--> CloudWatch
-
-Springboot:::springboot
-CloudWatch:::cloudwatch
-classDef springboot fill:#a7f49a,stroke:#FFF
-classDef cloudwatch fill:#f2d5e0, stroke:#FFF
-```
-
-## API 문서
-
-- https://api.bootme.co.kr/docs/swagger/index.html
-- https://api.bootme.co.kr/docs/rest/index.html
+## 주요 기능
+<img src="https://github.com/Jinwook94/bootme/assets/44575214/a7c8fad7-2db3-44fa-8f08-cf8c28b4bc80">
+<img src="https://github.com/Jinwook94/bootme/assets/44575214/b4f85fed-a6f9-4ae2-9c9f-60486b8f4820">
 
 <br>
+
+## 주요 작업
+
+<details>
+  <summary> 1. 게시글 조회 API 성능 개선</summary>
+
+  <img src="https://github.com/Jinwook94/bootme/assets/44575214/b84301e4-d380-4d17-966f-f9eeab566430">
+  <img src="https://github.com/Jinwook94/bootme/assets/44575214/f8b67ca7-098d-4971-a40c-454c3fdcaa07">
+  <img src="(https://github.com/Jinwook94/bootme/assets/44575214/a6033f44-8e0e-4cfb-92be-702dadeee5c9">
+  <img src="https://github.com/Jinwook94/bootme/assets/44575214/04b91048-2009-4556-9966-ba26662373c2">
+</details>
+

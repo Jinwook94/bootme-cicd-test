@@ -9,7 +9,8 @@
 ## 결과물 URL
 | 결과물                | URL                                                                          |
 |--------------------|------------------------------------------------------------------------------|
-| GitHub             | https://github.com/Jinwook94/bootme                                          |
+| 프로젝트 소개 문서         | [bootme.pdf](https://github.com/Jinwook94/bootme/files/13223226/_.pdf)       |
+| GitHub 저장소         | https://github.com/Jinwook94/bootme                                          |
 | 서비스 (운영)           | https://bootme.co.kr/                                                        |
 | 서비스 (스테이징)         | https://staging.bootme.co.kr/                                                |
 | 개발 문서              | https://samata94.notion.site/a26611d37ab2404d92366e4c5677efff?v              |
@@ -17,13 +18,6 @@
 | API 문서 (Rest Docs) | https://api.bootme.co.kr/docs/rest/index.html                                |
 | ERD                | https://dbdiagram.io/d/BootMe_ALL-64788f24722eb77494373f88                   |
 | 디자인                | https://www.figma.com/file/aTIdPnGfBe2ValxUY7zbFD/BootMe-Figma?node-id=360-2 |
-
-<br>
-
-## API 문서
-
-- https://api.bootme.co.kr/docs/swagger/index.html
-- https://api.bootme.co.kr/docs/rest/index.html
 
 <br>
 
@@ -76,15 +70,3 @@
 <img src="https://github.com/Jinwook94/bootme/assets/44575214/b4f85fed-a6f9-4ae2-9c9f-60486b8f4820">
 
 <br>
-
-## 주요 작업
-
-<details>
-  <summary> 1. 게시글 조회 API 성능 개선</summary>
-
-  <img src="https://github.com/Jinwook94/bootme/assets/44575214/b84301e4-d380-4d17-966f-f9eeab566430">
-  <img src="https://github.com/Jinwook94/bootme/assets/44575214/f8b67ca7-098d-4971-a40c-454c3fdcaa07">
-  <img src="(https://github.com/Jinwook94/bootme/assets/44575214/a6033f44-8e0e-4cfb-92be-702dadeee5c9">
-  <img src="https://github.com/Jinwook94/bootme/assets/44575214/04b91048-2009-4556-9966-ba26662373c2">
-</details>
-
